@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorClosing_Script : MonoBehaviour{
-    public GameObject TheDoor;
-    public AudioSource DoorCreaky;
-    public AudioSource LaughWoman;
-    public AudioSource HitDark;
 
-    void OnTriggerEnter(){
-        GetComponent<BoxCollider>().enabled = false;
-        TheDoor.GetComponent<Animation>().Play("DoorClosing_Anim");
+    public AudioSource DoorCreaky;
+    public Collider PlayerCollider;
+    //public AudioSource LaughWoman;
+    //public AudioSource HitDark;
+    // public Animation OpenClose;
+    private void Start()
+    {
+        //GetComponent<Animation>().enabled = false;
+    }
+
+    void OnTriggerEnter(Collider PlayerCollider){
+        //GetComponent<BoxCollider>().enabled = false;
+        //GetComponent<Animation>().enabled = true;
+        GetComponent<Animation>().Play();
         DoorCreaky.Play();
-        LaughWoman.Play();
-        HitDark.Play();
+        //LaughWoman.Play();
+        //HitDark.Play();
     }
 }
